@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Belajar Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="http://davidtkatz.com/public_css/vue.css">
+</head>
+
+<body>
+    <div id="app" class="">
+        <h1>
+            Count: {{ count }}
+        </h1>
+        <button class="vue-btn" @click="increment">Increment</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                increment() {
+                    this.count++
+                }
+            },
+            updated() {
+                console.log('ini count', this.count);
+            }
+        })
+    </script>
+</body>
+
+</html>

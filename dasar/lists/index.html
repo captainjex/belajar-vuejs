@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Belajar Vue</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="http://davidtkatz.com/public_css/vue.css">
+</head>
+
+<body>
+    <div id="app" class="">
+        <ul>
+            <li v-for="color in colors" v-if="color.primary">{{ color.text }}</li>
+        </ul>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+
+            data: {
+                colors: [{
+                        text: 'abang',
+                        primary: true
+                    },
+                    {
+                        text: 'oren',
+                        primary: false
+                    },
+                    {
+                        text: 'ijo',
+                        primary: true
+                    },
+                    {
+                        text: 'biru',
+                        primary: true
+                    },
+                    {
+                        text: 'coklat',
+                        primary: false
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>
