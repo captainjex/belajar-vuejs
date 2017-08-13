@@ -23,11 +23,15 @@
                 <label for="">Teks Isi Note</label>
                 <textarea class="form-control" v-model="note.text"></textarea>
             </div>
+            <div class="form-group">
+                <label for="">Warna Note</label>
+                <input class="form-control" type="text" v-model="note.backgroundColor">
+            </div>
             <button type="button" class="btn btn-primary" @click="addNote">Submit</button>
         </div>
         <div class="col-sm-12">
             <div class="col-sm-4 note" v-for="(note, index) in notes">
-                <div class="card">
+                <div class="card" :style="[note]">
                     <button class="close" @click="removeNote(index)">&times;</button>
                     <div class="card-block">
                         <h4 class="card-title">{{ note.title }}</h4>
@@ -46,11 +50,13 @@
                 title: 'NoteMaster',
                 note: {
                     title: '',
-                    text: ''
+                    text: '',
+                    backgroundColor: ''
                 },
                 notes: [{
                     title: 'Berangkat Karimun',
                     text: 'Wah di sana sih katanya keren, pengen ke sana wkwkwk',
+                    backgroundColor: 'yellow',
                     date: new Date(Date.now()).toLocaleString()
                 }]
             },
@@ -58,18 +64,20 @@
                 addNote() {
                     let {
                         text,
-                        title
+                        title,
+                        backgroundColor
                     } = this.note
                     this.notes.push({
                         text,
                         title,
+                        backgroundColor,
                         date: new Date(Date.now()).toLocaleString()
                     })
                 },
                 removeNote(index) {
                     this.notes.splice(index, 1)
                 }
-            }
+            },
         })
     </script>
 </body>
